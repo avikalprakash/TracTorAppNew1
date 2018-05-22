@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.lueinfo.tractorapp.SongRequest"
+    android:background="#000000">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textColor="#bc9842"
+    android:text="Song Request"
+    android:id="@+id/text1"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="10dp"
+    android:textSize="15dp"/>
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/text1"
+        android:src="@drawable/music"
+        android:id="@+id/image1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:id="@+id/view"
+        android:background="#ffffff"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_below="@+id/image1"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#ffffff"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="20dp"
+        android:id="@+id/relativeSongName"
+        android:layout_below="@+id/view">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Song Name"
+            android:paddingRight="20dp"
+            android:layout_centerVertical="true"
+            android:paddingLeft="20dp"
+            android:textSize="15dp"
+            android:backgroundTint="@android:color/transparent"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#ffffff"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="20dp"
+        android:id="@+id/relativeArtist"
+        android:layout_below="@+id/relativeSongName">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Artist"
+            android:paddingRight="20dp"
+            android:layout_centerVertical="true"
+            android:paddingLeft="20dp"
+            android:textSize="15dp"
+            android:backgroundTint="@android:color/transparent"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#ffffff"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="20dp"
+        android:id="@+id/relativeDedicated"
+        android:layout_below="@+id/relativeArtist">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Dedicated To"
+            android:paddingRight="20dp"
+            android:layout_centerVertical="true"
+            android:paddingLeft="20dp"
+            android:textSize="15dp"
+            android:backgroundTint="@android:color/transparent"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#ffffff"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="20dp"
+        android:id="@+id/relativeSpe"
+        android:layout_below="@+id/relativeDedicated">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Special Message"
+            android:paddingRight="20dp"
+            android:paddingTop="10dp"
+            android:paddingLeft="20dp"
+            android:textSize="15dp"
+            android:backgroundTint="@android:color/transparent"/>
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relativeSpe"
+        android:layout_centerHorizontal="true"
+        android:text="Attach"
+        android:id="@+id/text2"
+        android:textColor="#ffffff"
+        android:layout_marginTop="20dp"
+        />
+    <ImageView
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:id="@+id/camera"
+        android:padding="15dp"
+        android:background="#696969"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/text2"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/camera"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:id="@+id/sendRequest"
+        android:layout_below="@+id/camera"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="#8b6914"
+        android:text="Send Request"
+        android:paddingRight="15dp"
+        android:paddingLeft="15dp"
+        android:textColor="#ffffff"
+        android:layout_marginBottom="20dp"/>
+</RelativeLayout>
+</ScrollView>

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="#000000"
+    android:layout_height="match_parent"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Table Reservation"
+        android:gravity="center"
+        android:textColor="#bc9842"
+
+        android:textSize="20dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="I want to reserve a table at cloud 9 restaurant"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:textSize="12sp"
+        android:background="#727272"
+        android:layout_marginBottom="40dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content">
+
+        <EditText
+
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:hint="   Date"
+            android:background="#ffffff"
+            android:layout_marginRight="10dp"
+            android:id="@+id/sdate"
+            android:layout_marginLeft="5dp"
+            android:focusable="false"
+            android:drawableLeft="@drawable/calendar"
+            android:padding="15dp"
+            />
+        <EditText
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:hint="Time"
+            android:background="#ffffff"
+            android:drawableLeft="@drawable/clock"
+            android:focusable="false"
+            android:id="@+id/stime"
+            android:padding="15dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/smoke_btn"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:hint="Smoking"
+            android:background="@drawable/btnwhite"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"
+            android:focusable="false"
+            android:padding="15dp"
+            />
+        <Button
+            android:id="@+id/nonsmoke_btn"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:hint="Non Smoking"
+            android:textColor="#ffffff"
+            android:background="#bc9842"
+            android:layout_marginRight="10dp"
+            android:focusable="false"
+            android:padding="15dp"
+            />
+
+        <EditText
+            android:id="@+id/nopeople_edtxt"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:hint="    3"
+            android:background="#ffffff"
+            android:layout_marginRight="10dp"
+            android:maxLength="4"
+            android:inputType="number"
+            android:drawableLeft="@drawable/unum"
+            android:padding="11dp"
+            />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+
+        android:background="#bc9842"
+        />
+
+    <EditText
+        android:id="@+id/name_edtxt"
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:background="#ffffff"
+        android:padding="10dp"
+        android:hint="Name"
+        android:gravity="center"
+        android:inputType="text"
+        android:layout_margin="10dp"
+        android:drawableRight="@drawable/uuu"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/email_edtxt"
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:background="#ffffff"
+        android:padding="10dp"
+        android:hint="Email"
+        android:inputType="text"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:drawableRight="@drawable/message"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/mobile_edtxt"
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:background="#ffffff"
+        android:padding="10dp"
+        android:hint="Mobile"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:inputType="number"
+        android:drawableRight="@drawable/smartphone"
+        android:layout_height="wrap_content" />
+
+
+
+    <Button
+        android:id="@+id/reservetble_btn"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn1"
+        android:textColor="#ffff"
+        android:padding="12dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/forgotxt"
+        android:text="Reserve A Table"/>
+
+</LinearLayout>

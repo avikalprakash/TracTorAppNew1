@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Introducer"
+            android:gravity="center"
+            android:textColor="#bc9842"
+            android:layout_marginBottom="40dp"
+            android:textSize="20dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:background="#ffffff"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/introducer_edtxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#000000"
+                android:paddingLeft="20dp"
+                android:padding="10dp"
+                android:maxLength="40"
+                android:background="#ffffff"
+                android:hint="Introducer's Name"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:background="#ffffff"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/introducerphone_edtxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#000000"
+                android:maxLength="15"
+                android:paddingLeft="20dp"
+                android:padding="10dp"
+                android:inputType="number"
+                android:background="#ffffff"
+                android:hint="Mobile No."/>
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/confirm_btn"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:background="@drawable/btn1"
+            android:textColor="#ffff"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="24dp"
+            android:padding="12dp"
+            android:layout_marginRight="20dp"
+            android:layout_below="@+id/forgotxt"
+            android:layout_marginLeft="15dp"
+            android:text="CONFIRM"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="12dp"
+            android:textStyle="italic"
+            android:id="@+id/text1"
+            android:text="Please enter your INTRODUCER’s Name or Phone Number"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="12dp"
+            android:textStyle="italic"
+            android:id="@+id/text2"
+            android:text=" or scan QR code to register for 5% discount on all bills at Cloud 9"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="12dp"
+            android:textStyle="italic"
+            android:id="@+id/text3"
+            android:text="Please read the terms and conditions for usage of"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="12dp"
+            android:textStyle="italic"
+            android:id="@+id/text4"
+            android:text="this app before you register."
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:background="#292929"
+            android:text="SCAN QR CODE"
+            android:id="@+id/scanqr_btn"
+            android:textColor="#ffffff"
+            android:layout_marginTop="40dp"
+            />
+    </LinearLayout>
+</ScrollView>

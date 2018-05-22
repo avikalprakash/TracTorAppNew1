@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    >
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/i"
+        android:layout_margin="10dp"
+        android:background="#ffffff">
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/apture"
+            android:id="@+id/grid_image"/>
+        <!--  <ImageView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:src="@drawable/favorite"
+              android:layout_marginLeft="220dp"
+              android:layout_marginTop="10dp"/>-->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/grid_image"
+            android:text="Spicy Chicken Roast"
+            android:layout_marginLeft="5dp"
+            android:textSize="15dp"
+            android:id="@+id/griddetail_text"
+            android:textStyle="bold"
+            />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/griddetail_text"
+            android:layout_marginTop="5dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="RM 18.00"
+                android:textSize="12dp"
+                android:layout_marginTop="15dp"
+                android:id="@+id/gridtime_text"
+                android:drawableLeft="@drawable/clock_i"
+                />
+            <Button
+                android:layout_width="80dp"
+                android:id="@+id/gridcal_text"
+                android:layout_height="35dp"
+                android:text="Buy"
+                android:background="#458b00"
+                android:textSize="12sp"
+                android:textColor="#ffffff"
+                android:layout_toEndOf="@+id/gridtime_text"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/gridtime_text" />
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

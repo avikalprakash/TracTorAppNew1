@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.lueinfo.tractorapp.SongRequestPay"
+    android:background="#000000">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#bc9842"
+        android:text="Song Request"
+        android:id="@+id/text1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:textSize="15dp"/>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/radio"
+        android:layout_below="@+id/text1"
+        android:layout_marginTop="60dp">
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/mayBank2u"
+            android:textColor="#ffffff"
+            android:button="@null"
+            android:gravity="center"
+            android:layout_marginRight="50dp"
+            android:drawableRight="@android:drawable/btn_radio"
+            android:buttonTint="@color/radio_color"
+            android:textSize="15sp"
+            android:text="RM 50.00 ( 50 Credits )"/>
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cimbclick"
+            android:textColor="#ffffff"
+            android:textSize="15dp"
+            android:gravity="center"
+            android:button="@null"
+            android:layout_marginRight="50dp"
+            android:drawableRight="@android:drawable/btn_radio"
+            android:buttonTint="@color/radio_color"
+            android:text="RM 100.00 ( 100 Credits )"/>
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/RHBnow"
+            android:textColor="#ffffff"
+            android:textSize="15dp"
+            android:layout_marginRight="50dp"
+            android:gravity="center"
+            android:button="@null"
+            android:drawableRight="@android:drawable/btn_radio"
+            android:buttonTint="@color/radio_color"
+            android:text="RM 200.00 ( 200 Credits )"/>
+    </RadioGroup>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/radio"
+        android:layout_marginRight="30dp"
+        android:id="@+id/buy_credits"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="50dp"
+        android:background="#bc9842"
+        android:text="BUY CREDITS"
+        android:textColor="#ffffff"/>
+</RelativeLayout>

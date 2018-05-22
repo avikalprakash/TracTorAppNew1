@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">TracTorApp</string>
+    <string name="app_id">809090065932034</string>
+    <string-array name="lang_select">
+        <item>English</item>
+        <item>Hindi</item>
+        <!--<item>Panjabi</item>-->
+        <!--<item>Marathi</item>-->
+        <!--<item>Urdu</item>-->
+    </string-array>
+    <string name="language_setting">Language</string>
+    <string-array name="gender_select">
+        <item>Gender</item>
+        <item>Male</item>
+        <item>Female</item>
+        <!--<item>Panjabi</item>-->
+        <!--<item>Marathi</item>-->
+        <!--<item>Urdu</item>-->
+    </string-array>
+    <string name="view_all_location"><u>View all location</u></string>
+    <string name="proceed">Your payment is successful.\n To view items go to "Paid items" page.</string>
+    <string name="comment">We appreciate your feedback and will look into it immediately.</string>
+    <string name="normal_song_request">Your request has beed submitted, \nplease wait for your song</string>
+    <string name="paid_song">We will play your song immediately after this song</string>
+    <string name="table_reservation">We will contact you shortly \nto confirm your reservation.</string>
+    <string name="logout">Are you sure you want to\n logout TracTor App ?</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ok_button">Ok</string>
+    <string name="msg">Ok</string>
+</resources>

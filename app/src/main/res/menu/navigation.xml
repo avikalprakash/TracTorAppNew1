@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title=""
+        />
+
+    <item
+        android:id="@+id/navigation_homeqwert"
+        android:icon="@drawable/question"
+        android:title=""
+        />
+    <item
+        android:id="@+id/navigation_setting"
+        android:icon="@drawable/setting"
+        android:title="" />
+
+    <!--<item-->
+        <!--android:id="@+id/navigation_dashboard"-->
+        <!--android:icon="@drawable/question"-->
+        <!--android:title="" />-->
+
+    <item
+        android:id="@+id/navigation_calender"
+        android:icon="@drawable/calender"
+        android:title="" />
+
+    <item
+        android:id="@+id/navigation_comment"
+        android:icon="@drawable/i"
+        android:title="" />
+
+</menu>

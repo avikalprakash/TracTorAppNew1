@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.lueinfo.tractorapp.ConfirmPurchase"
+    android:background="#000000">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="20dp">
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:text="Confirm Purchase"
+    android:id="@+id/text"
+    android:textSize="18dp"
+    android:textColor="#bc9842"
+    android:layout_marginTop="10dp"/>
+
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/text"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:textColor="#696969"-->
+        <!--android:id="@+id/refund_text"-->
+        <!--android:layout_marginLeft="20dp"-->
+        <!--android:layout_marginRight="20dp"-->
+        <!--android:text="You can receive full refund in cloud 9 credits if you cancel before Tue , 08 Aug 2018, , 23:59"-->
+        <!--/>-->
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#ffffff"
+        android:id="@+id/view"
+        android:layout_below="@+id/text"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"/>
+
+    <ImageView
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:id="@+id/prod_image"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@+id/view"
+        android:src="@drawable/p"
+        android:layout_marginTop="20dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view"
+        android:layout_toEndOf="@+id/prod_image"
+        android:layout_marginTop="20dp"
+        android:id="@+id/prod_name"
+        android:textColor="#bc9842"
+        android:text="Spicy Chicken Roast"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#696969"
+        android:layout_marginTop="5dp"
+        android:text="RM 25.00"
+        android:layout_toEndOf="@+id/prod_image"
+        android:textSize="15dp"
+        android:id="@+id/text3"
+        android:layout_below="@+id/prod_name"/>
+    <View
+        android:layout_width="65dp"
+        android:layout_height="1dp"
+        android:background="#696969"
+        android:layout_toEndOf="@+id/prod_image"
+        android:layout_below="@+id/prod_name"
+        android:layout_marginTop="14dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/text3"
+        android:layout_below="@+id/prod_name"
+        android:layout_marginTop="5dp"
+        android:text="RM 18.00"
+        android:id="@+id/price"
+        android:textColor="#ffd700"
+        android:layout_marginLeft="20dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text3"
+        android:layout_marginTop="10dp"
+        android:text="Ever wish you could get that restaurant-style rotisserie chicken at home? Well with minimal prepraion"
+        android:textColor="#ffffff"
+        android:textSize="12dp"
+        android:layout_marginRight="20dp"
+        android:layout_toEndOf="@+id/prod_image"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#ffffff"
+        android:id="@+id/view2"
+        android:layout_below="@+id/prod_image"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"/>
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/view2"
+    android:text="Redeem at"
+    android:id="@+id/text4"
+    android:layout_marginLeft="20dp"
+   android:layout_marginTop="10dp"
+    android:textColor="#696969"
+    />
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/text4"
+    android:id="@+id/redeem_at"
+    android:text="Available at 2 Cloud 9 Outlets"
+    android:layout_marginLeft="20dp"
+    android:layout_marginTop="5dp"
+    android:textColor="#ffffff"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/redeem_at"
+        android:layout_marginLeft="20dp"
+        android:text="@string/view_all_location"
+        android:textColor="#bc9842"
+        android:id="@+id/view_location"
+        android:layout_marginTop="5dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view_location"
+        android:text="Redeem at"
+        android:id="@+id/text5"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:textColor="#696969" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text5"
+        android:id="@+id/redeem_from"
+        android:text="01 Aug 2018 - 30 Sep 2018"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:textColor="#ffffff"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/redeem_from"
+        android:background="#ffffff"
+        android:id="@+id/view3"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/view3"
+            android:layout_marginLeft="20dp"
+            android:text="Quantity"
+            android:id="@+id/text6"
+            android:textColor="#bc9842"
+            android:layout_marginTop="40dp"/>
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/minus"
+            android:id="@+id/minus"
+            android:layout_below="@+id/view3"
+            android:layout_toStartOf="@+id/quantity"
+            android:layout_marginRight="20dp"/>
+        <TextView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_toStartOf="@+id/add"
+            android:layout_below="@+id/view3"
+            android:background="@drawable/btn_white_border"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="20dp"
+            android:text="1"
+            android:id="@+id/quantity"
+            android:textColor="#ffffff"
+            android:gravity="center"
+            />
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/add"
+            android:id="@+id/add"
+            android:layout_below="@+id/view3"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="30dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/add"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Total Price"
+            android:textColor="#bc9842"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/add"
+            android:layout_marginTop="20dp"
+            android:id="@+id/realPrice"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="30dp"
+            android:text="RM 18.00"
+            android:textColor="#ffffff"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/add"
+            android:layout_marginTop="20dp"
+            android:layout_toStartOf="@+id/realPrice"
+            android:layout_marginRight="10dp"
+            android:text="RM 25.00"
+            android:textColor="#696969"/>
+        <View
+            android:layout_width="60dp"
+            android:layout_height="1dp"
+            android:background="#696969"
+            android:layout_below="@+id/add"
+            android:layout_marginTop="28dp"
+            android:layout_toStartOf="@+id/realPrice"
+            android:layout_marginRight="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/realPrice"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Amount Payable"
+            android:textColor="#bc9842"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/realPrice"
+            android:layout_marginTop="20dp"
+            android:id="@+id/amountPayable"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="30dp"
+            android:text="RM 18.00"
+            android:textColor="#ffffff"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/amountPayable"
+            android:background="#ffffff"
+            android:id="@+id/view4"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"/>
+<Button
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginRight="50dp"
+    android:layout_marginLeft="50dp"
+    android:text="Confirm purchase"
+    android:textColor="#ffffff"
+    android:id="@+id/confirm_purchase"
+    android:layout_marginTop="20dp"
+    android:layout_marginBottom="20dp"
+    android:background="#228b22"
+    android:layout_below="@+id/view4"/>
+</RelativeLayout>
+</ScrollView>

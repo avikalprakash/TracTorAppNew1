@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "584338024312",
+    "firebase_url": "https://tractorapp-ad115.firebaseio.com",
+    "project_id": "tractorapp-ad115",
+    "storage_bucket": "tractorapp-ad115.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:584338024312:android:abe6de2fcc460e3f",
+        "android_client_info": {
+          "package_name": "com.lueinfo.tractorapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "584338024312-1idp72jv1up5gud3mi2veu8cggb3hfem.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lueinfo.tractorapp",
+            "certificate_hash": "2c75bbd63fff078c92286218ed19a4ce9aa30f60"
+          }
+        },
+        {
+          "client_id": "584338024312-4kcti6mc59te3d4a8nkuqt967s4i47gt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7tRUN8B6eLcoNt7W20fepiICFNHclPiI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "584338024312-4kcti6mc59te3d4a8nkuqt967s4i47gt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

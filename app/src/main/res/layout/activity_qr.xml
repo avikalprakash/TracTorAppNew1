@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:id="@+id/textTitle"
+    android:text="INTRODUCER"
+    android:layout_marginTop="10dp"
+    android:textSize="20sp"
+    android:textColor="#bc9842"/>
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:id="@+id/imageQR"
+        android:src="@drawable/qr"
+        android:layout_below="@+id/textTitle"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+      />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageQR"
+        android:id="@+id/text1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:textColor="#bc9842"
+        android:textSize="18dp"
+        android:text="Introducer Name"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text1"
+        android:id="@+id/introducerName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:textColor="#ffffff"
+        android:textSize="18dp"
+        android:text="Name"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/introducerName"
+        android:id="@+id/text2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:textColor="#bc9842"
+        android:textSize="18dp"
+        android:text="Introducer Contact No."/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text2"
+        android:id="@+id/introducerContact"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:textColor="#ffffff"
+        android:textSize="18dp"
+        android:text="Number"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#ffffff"
+        android:id="@+id/view"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_below="@+id/introducerContact"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:textSize="12dp"
+        android:layout_marginRight="10dp"
+        android:gravity="center"
+        android:id="@+id/text"
+        android:textStyle="italic"
+        android:layout_below="@+id/view"
+        android:text="Please show QR CODE to be entitled for 5% discount of all bills at Cloud 9. Terms &amp; Conditions Applies."
+        android:textColor="@android:color/darker_gray"/>
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:background="#bc9842"
+            android:text="Back"
+            android:layout_marginTop="10dp"
+            android:id="@+id/back_btn"
+            android:textColor="#ffffff"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/text"/>
+
+    </RelativeLayout>
+
+</ScrollView>

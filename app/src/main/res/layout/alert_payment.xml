@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffffff"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp">
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/titleText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="THANK YOU"
+        android:textSize="20dp"
+        android:layout_marginTop="40dp"
+        android:textColor="#bc9842"
+        android:textStyle="bold|italic" />
+
+    <View
+        android:layout_width="50dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/view"
+        android:layout_centerHorizontal="true"
+        android:background="#bc9842"
+        android:layout_below="@+id/titleText"
+        />
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/text1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/view"
+        android:text="@string/proceed"
+        android:textColor="#bc9842"
+        android:textStyle="bold|italic" />
+    <Button
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:text="Return"
+        android:background="#000000"
+        android:textColor="#ffffff"
+        android:id="@+id/ok"
+        android:layout_marginBottom="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/text1"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>

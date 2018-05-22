@@ -1,0 +1,234 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:orientation="horizontal"
+            android:layout_weight="1" >
+
+            <Button
+                android:layout_width="0dip"
+                android:layout_height="100dp"
+                android:drawableTop="@drawable/chance"
+                android:text="Chance of the Day"
+                android:textColor="#ffffff"
+                android:id="@+id/cofday"
+                android:textAllCaps="false"
+                android:background="#000000"
+                android:layout_weight="1"
+                />
+
+            <Button
+                android:layout_width="0dip"
+                android:layout_height="100dp"
+                android:drawableTop="@drawable/qrimgint"
+                android:text="Introducer Qr Code"
+                android:textColor="#ffffff"
+                android:id="@+id/qrcodeimg"
+                android:textAllCaps="false"
+                android:background="#000000"
+                android:layout_weight="1"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:orientation="horizontal"
+            android:layout_weight="1" >
+
+            <Button
+                android:layout_width="0dip"
+                android:layout_height="100dp"
+                android:drawableTop="@drawable/introducer"
+                android:text="Introducer"
+                android:id="@+id/introducer"
+                android:textColor="#ffffff"
+                android:textAllCaps="false"
+                android:background="#000000"
+                android:layout_weight="1"
+                />
+
+            <Button
+                android:layout_width="0dip"
+                android:layout_height="100dp"
+                android:drawableTop="@drawable/news"
+                android:text="News &amp; Buletin"
+                android:textColor="#ffffff"
+                android:id="@+id/news"
+                android:textAllCaps="false"
+                android:background="#000000"
+                android:layout_weight="1"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:orientation="horizontal"
+            android:layout_weight="1" >
+
+            <Button
+                android:layout_width="0dip"
+                android:layout_height="100dp"
+                android:id="@+id/menu"
+                android:drawableTop="@drawable/menucloud"
+                android:text="Menu"
+                android:textColor="#ffffff"
+                android:textAllCaps="false"
+                android:background="#000000"
+                android:layout_weight="1"
+                />
+
+            <Button
+                android:layout_width="0dip"
+                android:layout_height="100dp"
+                android:drawableTop="@drawable/paid"
+                android:text="Paid Items"
+                android:id="@+id/paidItem"
+                android:textColor="#ffffff"
+                android:textAllCaps="false"
+                android:background="#000000"
+                android:layout_weight="1"
+              />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:orientation="horizontal"
+            android:layout_weight="1" >
+
+            <Button
+                android:layout_width="0dip"
+                android:layout_height="100dp"
+                android:drawableTop="@drawable/promotion"
+                android:text="Promotions"
+                android:id="@+id/promotion"
+                android:textColor="#ffffff"
+                android:textAllCaps="false"
+                android:background="#000000"
+                android:layout_weight="1"
+                />
+
+            <Button
+                android:layout_width="0dip"
+                android:layout_height="100dp"
+                android:drawableTop="@drawable/transaction"
+                android:text="Transaction"
+                android:id="@+id/transaction"
+                android:textColor="#ffffff"
+                android:textAllCaps="false"
+                android:background="#000000"
+                android:layout_weight="1"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:orientation="horizontal"
+            android:layout_weight="1" >
+
+            <Button
+                android:layout_width="0dip"
+                android:layout_height="100dp"
+                android:drawableTop="@drawable/song_request"
+                android:text="Song Request"
+                android:id="@+id/song_request"
+                android:textColor="#ffffff"
+                android:textAllCaps="false"
+                android:background="#000000"
+                android:layout_weight="1"
+                />
+
+            <Button
+                android:layout_width="0dip"
+                android:layout_height="100dp"
+                android:drawableTop="@drawable/live_stream"
+                android:text="Live Stream"
+                android:id="@+id/live_stream"
+                android:textColor="#ffffff"
+                android:textAllCaps="false"
+                android:background="#000000"
+                android:layout_weight="1"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:orientation="horizontal"
+            android:layout_weight="1" >
+
+            <Button
+                android:layout_width="0dip"
+                android:layout_height="100dp"
+                android:drawableTop="@drawable/rate_singer"
+                android:text="Rate Singer + Offer Tips"
+                android:id="@+id/rate_singer"
+                android:textColor="#ffffff"
+                android:textAllCaps="false"
+                android:background="#000000"
+                android:layout_weight="1"
+                />
+
+            <Button
+                android:layout_width="0dip"
+                android:layout_height="100dp"
+                android:drawableTop="@drawable/transaction"
+                android:text="Gallery"
+                android:id="@+id/gallery"
+                android:textColor="#ffffff"
+                android:textAllCaps="false"
+                android:background="#000000"
+                android:layout_weight="1"
+                />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:orientation="horizontal"
+            android:layout_weight="1" >
+
+            <Button
+                android:layout_width="0dip"
+                android:layout_height="100dp"
+                android:drawableTop="@drawable/table_res"
+                android:text="Table Reservation"
+                android:id="@+id/tableReservation"
+                android:textColor="#ffffff"
+                android:textAllCaps="false"
+                android:background="#000000"
+                android:layout_weight="1"
+                />
+
+            <Button
+                android:layout_width="0dip"
+                android:layout_height="100dp"
+                android:drawableTop="@drawable/profile"
+                android:text="Profile"
+                android:id="@+id/profile"
+                android:textColor="#ffffff"
+                android:textAllCaps="false"
+                android:background="#000000"
+                android:layout_weight="1"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
