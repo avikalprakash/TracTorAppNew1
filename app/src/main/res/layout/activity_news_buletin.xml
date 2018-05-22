@@ -100,9 +100,14 @@
         android:id="@+id/relative2"
         android:layout_below="@id/text"
         android:layout_marginTop="10dp">
-        <FrameLayout
+        <ListView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/listFrame"></FrameLayout>
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:divider="@null"
+            android:dividerHeight="0dp"
+            android:id="@+id/listCustomer"></ListView>
     </RelativeLayout>
 </RelativeLayout>

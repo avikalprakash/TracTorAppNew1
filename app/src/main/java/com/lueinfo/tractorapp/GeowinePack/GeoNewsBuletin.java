@@ -11,8 +11,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import com.lueinfo.tractorapp.Adapter.AdapterGeoNewsBuletin;
 import com.lueinfo.tractorapp.Adapter.AndroidImageAdapternew;
 import com.lueinfo.tractorapp.Adapter.BuletinSlideShow;
 import com.lueinfo.tractorapp.Adapter.NewsBuletinListDetails;
@@ -53,16 +55,19 @@ public class GeoNewsBuletin extends AppCompatActivity implements NewsBuletinList
     public static Context context;
     RecyclerView recycler_view;
     TextView timeText;
+    ListView listCustomer;
     ArrayList<BuletinSlideShow> SliderImage = new ArrayList<BuletinSlideShow>();
-    public static List<NewsBuletinListDetails> buletinListDetailses;
+    public static ArrayList<NewsBuletinListDetails> buletinListDetailses = new ArrayList<>();
     ProgressDialog pDialog;
     AndroidImageAdapternew adapterView;
     ArrayList<String> ImageList = new ArrayList<>();
+    AdapterGeoNewsBuletin adapterGeoNewsBuletin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_geo_news_buletin);
         mViewPager = (ViewPager) findViewById(R.id.viewPager);
+        listCustomer=(ListView)findViewById(R.id.listCustomer);
         handler1=new Handler();
         context=this;
         pDialog = new ProgressDialog(GeoNewsBuletin.this);
@@ -120,6 +125,7 @@ public class GeoNewsBuletin extends AppCompatActivity implements NewsBuletinList
             pDialog.setCancelable(true);
             pDialog.show();
             buletinListDetailses=new ArrayList<>();
+            buletinListDetailses.clear();
         }
 
         @Override
@@ -158,28 +164,22 @@ public class GeoNewsBuletin extends AppCompatActivity implements NewsBuletinList
                 JSONObject jsonObject=new JSONObject(json);
                 boolean error=jsonObject.getBoolean("error");
 
-                if(!error)
-                {
-                    JSONArray jsonArray=jsonObject.getJSONArray("message");
-                    for(int i=0;i<jsonArray.length();i++)
-                    {
-                        buletinListDetailses.add(new NewsBuletinListDetails((JSONObject)jsonArray.get(i)));
-                    }
-                    if (buletinListDetailses.size()>0) {
-
-                        Collections.sort(buletinListDetailses, new Comparator<NewsBuletinListDetails>()
-                        {
-                            @Override
-                            public int compare(NewsBuletinListDetails lhs, NewsBuletinListDetails rhs) {
-                                return (rhs.getTitle()).compareTo(lhs.getTitle());
-                            }
-                        });
+                if(!error) {
+                    JSONArray jsonArray = jsonObject.getJSONArray("message");
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+                        NewsBuletinListDetails newsBuletinListDetails = new NewsBuletinListDetails();
+                        newsBuletinListDetails.setTitle(jsonObject1.getString("title"));
+                        newsBuletinListDetails.setCreated_at(jsonObject1.getString("created_at"));
+                        newsBuletinListDetails.setDescription(jsonObject1.getString("description"));
+                        newsBuletinListDetails.setImage(jsonObject1.getString("image"));
+                        buletinListDetailses.add(newsBuletinListDetails);
+                        String tit = newsBuletinListDetails.getTitle();
+                        Log.d("fffffff", tit);
+                        adapterGeoNewsBuletin=new AdapterGeoNewsBuletin(GeoNewsBuletin.this, buletinListDetailses);
+                        listCustomer.setAdapter(adapterGeoNewsBuletin);
                     }
                 }
-                NewsBuletinListFragment newsBuletinListFragment=new NewsBuletinListFragment();
-                FragmentTransaction fm=getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.listFrame,newsBuletinListFragment);
-                fm.commitAllowingStateLoss();
             } catch (JSONException e) {}
         }
     }

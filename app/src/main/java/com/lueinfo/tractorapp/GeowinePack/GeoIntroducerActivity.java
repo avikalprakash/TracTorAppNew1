@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.android.volley.toolbox.HttpHeaderParser;
 import com.lueinfo.tractorapp.IntroducerActivity;
 import com.lueinfo.tractorapp.R;
 import com.lueinfo.tractorapp.ScanIntroQr;
@@ -22,6 +23,7 @@ import com.lueinfo.tractorapp.Utils.Urls;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
@@ -30,12 +32,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 
 public class GeoIntroducerActivity extends AppCompatActivity implements View.OnClickListener {
     Button mconfirmbtn,mscanqr_btn;
     EditText mintroducertxt,mintrophonetxt;
+    ProgressDialog pDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +64,7 @@ public class GeoIntroducerActivity extends AppCompatActivity implements View.OnC
     @Override
     public void onClick(View v) {
         new MakeIntro().execute();
+
     }
 
     class MakeIntro extends AsyncTask<String, Void, String> {
@@ -172,4 +178,129 @@ public class GeoIntroducerActivity extends AppCompatActivity implements View.OnC
         }
         return return_text;
     }
+
+
+
+   class pp extends AsyncTask<String, Void, String>{
+       String intro = mintroducertxt.getText().toString().trim();
+       String intphone = mintrophonetxt.getText().toString().trim();
+       String userid = SaveUserId.getInstance(GeoIntroducerActivity.this).getUserId();
+
+       @Override
+       protected void onPreExecute() {
+           super.onPreExecute();
+           pDialog = new ProgressDialog(GeoIntroducerActivity.this);
+           pDialog.setMessage("Loading...");
+           pDialog.show();
+       }
+
+       @Override
+       protected String doInBackground(String... strings) {
+           String s="";
+           try {
+           HttpClient httpClient = new DefaultHttpClient();
+           HttpPost httpPost = new HttpPost("http://condoassist2u.com/tractorapp/api/confirmIntroducer");
+           httpPost.setHeader("content-type", "application/json");
+           JSONObject jsonObject = new JSONObject();
+               jsonObject.accumulate("introducer_name", intro);
+               jsonObject.accumulate("introducer_phone",intphone);
+               jsonObject.accumulate("user_id", userid);
+
+
+               StringEntity stringEntity = new StringEntity(jsonObject.toString());
+               httpPost.setEntity(stringEntity);
+               HttpResponse httpResponse = httpClient.execute(httpPost);
+               s=readadsResponse(httpResponse);
+
+           } catch (JSONException e) {
+               e.printStackTrace();
+           } catch (UnsupportedEncodingException e) {
+               e.printStackTrace();
+           } catch (ClientProtocolException e) {
+               e.printStackTrace();
+           } catch (IOException e) {
+               e.printStackTrace();
+           }
+           return s;
+       }
+
+       @Override
+       protected void onPostExecute(String s) {
+           super.onPostExecute(s);
+           pDialog.dismiss();
+           try {
+               JSONObject jsonObject = new JSONObject(s);
+               boolean check  = jsonObject.getBoolean("error");
+               if(check) {
+                   String msg = jsonObject.getString("message");
+                   AlertDialog.Builder builder = new AlertDialog.Builder(GeoIntroducerActivity.this);
+                   builder.setMessage(msg)
+                           .setNegativeButton("ok", null)
+                           .create()
+                           .show();
+               }else {
+                   String id = jsonObject.getString("introducer_id");
+                   AlertDialog.Builder alert = new AlertDialog.Builder(GeoIntroducerActivity.this);
+                   alert.setMessage(id)
+                           .setNegativeButton("ok", new DialogInterface.OnClickListener() {
+                               @Override
+                               public void onClick(DialogInterface dialog, int which) {
+                               dialog.dismiss();
+                               }
+                           });
+               }
+           } catch (JSONException e) {
+               e.printStackTrace();
+           }
+
+       }
+   }
+
+   class ppv extends AsyncTask<String, Void, String>{
+       ProgressDialog progressDialog = new ProgressDialog(GeoIntroducerActivity.this);
+
+       @Override
+       protected void onPreExecute() {
+           super.onPreExecute();
+           progressDialog.setMessage("loading...");
+           progressDialog.show();
+       }
+
+       @Override
+       protected String doInBackground(String... strings) {
+           String s="";
+           try {
+           HttpClient httpClient = new DefaultHttpClient();
+           HttpPost httpPost = new HttpPost("");
+           httpPost.setHeader("content-type", "application/json");
+           JSONObject jsonObject = new JSONObject();
+               jsonObject.accumulate("", "");
+               jsonObject.accumulate("", "");
+               jsonObject.accumulate("", "");
+
+               StringEntity stringEntity = new StringEntity(jsonObject.toString());
+               httpPost.setEntity(stringEntity);
+               HttpResponse httpResponse = httpClient.execute(httpPost);
+                s=readadsResponse(httpResponse);
+
+           } catch (Exception e) {
+               e.printStackTrace();
+           }
+           return s;
+       }
+
+       @Override
+       protected void onPostExecute(String s) {
+           super.onPostExecute(s);
+           progressDialog.dismiss();
+           try {
+               JSONObject jsonObject = new JSONObject(s);
+               jsonObject.getString("");
+           } catch (Exception e) {
+               e.printStackTrace();
+           }
+
+       }
+   }
+
 }

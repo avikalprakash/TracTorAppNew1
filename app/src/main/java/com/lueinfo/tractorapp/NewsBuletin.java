@@ -14,14 +14,17 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.widget.ListView;
 import android.widget.TextView;
 
 
+import com.lueinfo.tractorapp.Adapter.AdapterGeoNewsBuletin;
 import com.lueinfo.tractorapp.Adapter.AndroidImageAdapternew;
 import com.lueinfo.tractorapp.Adapter.BuletinSlideShow;
 import com.lueinfo.tractorapp.Adapter.NewsBuletinListDetails;
 import com.lueinfo.tractorapp.Adapter.NewsBuletinListFragment;
 import com.lueinfo.tractorapp.Adapter.ServiceHandler;
+import com.lueinfo.tractorapp.GeowinePack.GeoNewsBuletin;
 import com.lueinfo.tractorapp.Utils.SaveUserId;
 import com.lueinfo.tractorapp.Utils.Urls;
 
@@ -56,15 +59,18 @@ public class NewsBuletin extends AppCompatActivity implements NewsBuletinListFra
     RecyclerView recycler_view;
     TextView timeText;
     ArrayList<BuletinSlideShow> SliderImage = new ArrayList<BuletinSlideShow>();
-    public static List<NewsBuletinListDetails> buletinListDetailses;
+    public static ArrayList<NewsBuletinListDetails> buletinListDetailses = new ArrayList<>();
     ProgressDialog pDialog;
     AndroidImageAdapternew adapterView;
     ArrayList<String> ImageList = new ArrayList<>();
+    AdapterGeoNewsBuletin adapterGeoNewsBuletin;
+    ListView listCustomer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_buletin);
         mViewPager = (ViewPager) findViewById(R.id.viewPager);
+        listCustomer=(ListView)findViewById(R.id.listCustomer);
         handler1=new Handler();
         context=this;
         pDialog = new ProgressDialog(NewsBuletin.this);
@@ -215,28 +221,22 @@ public class NewsBuletin extends AppCompatActivity implements NewsBuletinListFra
                 JSONObject jsonObject=new JSONObject(json);
                 boolean error=jsonObject.getBoolean("error");
 
-                if(!error)
-                {
-                    JSONArray jsonArray=jsonObject.getJSONArray("message");
-                    for(int i=0;i<jsonArray.length();i++)
-                    {
-                        buletinListDetailses.add(new NewsBuletinListDetails((JSONObject)jsonArray.get(i)));
-                    }
-                    if (buletinListDetailses.size()>0) {
-
-                        Collections.sort(buletinListDetailses, new Comparator<NewsBuletinListDetails>()
-                        {
-                            @Override
-                            public int compare(NewsBuletinListDetails lhs, NewsBuletinListDetails rhs) {
-                                return (rhs.getTitle()).compareTo(lhs.getTitle());
-                            }
-                        });
+                if(!error) {
+                    JSONArray jsonArray = jsonObject.getJSONArray("message");
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+                        NewsBuletinListDetails newsBuletinListDetails = new NewsBuletinListDetails();
+                        newsBuletinListDetails.setTitle(jsonObject1.getString("title"));
+                        newsBuletinListDetails.setCreated_at(jsonObject1.getString("created_at"));
+                        newsBuletinListDetails.setDescription(jsonObject1.getString("description"));
+                        newsBuletinListDetails.setImage(jsonObject1.getString("image"));
+                        buletinListDetailses.add(newsBuletinListDetails);
+                        String tit = newsBuletinListDetails.getTitle();
+                        Log.d("fffffff", tit);
+                        adapterGeoNewsBuletin = new AdapterGeoNewsBuletin(NewsBuletin.this, buletinListDetailses);
+                        listCustomer.setAdapter(adapterGeoNewsBuletin);
                     }
                 }
-                NewsBuletinListFragment newsBuletinListFragment=new NewsBuletinListFragment();
-                FragmentTransaction fm=getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.listFrame,newsBuletinListFragment);
-                fm.commitAllowingStateLoss();
             } catch (JSONException e) {}
         }
     }
@@ -373,74 +373,6 @@ public class NewsBuletin extends AppCompatActivity implements NewsBuletinListFra
             }
         }
     }
-
-
-
-
-//    private class NewsBuletinSlideShow extends AsyncTask<Void, Void, Void>
-//    {
-//        @Override
-//        protected void onPreExecute() {
-//            super.onPreExecute();
-//            pDialog.setMessage("Loading...");
-//            pDialog.show();
-//            pDialog.setCancelable(false);
-//        }
-//
-//        @Override
-//        protected Void doInBackground(Void... voids) {
-//            ServiceHandler jsonParser = new ServiceHandler();
-//            String json = jsonParser.makeServiceCall(Urls.newsBuletinSlideshow, ServiceHandler.GET);
-//            if(json!=null)
-//            {
-//                try {
-//
-//                    JSONObject jsonObject=new JSONObject(json);
-//                    boolean error=jsonObject.getBoolean("error");
-//                    if (!error)
-//                    {
-//                        JSONArray slidShowArry=jsonObject.getJSONArray("message");
-//                        for (int j = 0; j < slidShowArry.length(); j++)
-//                        {
-//                            BuletinSlideShow buletinSlideShow = new BuletinSlideShow();
-//                            JSONObject jobject = slidShowArry.getJSONObject(j);
-//                            buletinSlideShow.setSliderImage(jobject.getString("image"));
-//                            SliderImage.add(buletinSlideShow);
-//                            ImageList.add(jobject.getString("image"));
-//                    }
-//
-//                    }
-//                }catch (Exception e){
-//                    e.printStackTrace();
-//                }
-//
-//            }
-//            return null;
-//        }
-//
-//        @Override
-//        protected void onPostExecute(Void result) {
-//            super.onPostExecute(result);
-//            if (ImageList.size() > 0){
-//                adapterView = new AndroidImageAdapternew(NewsBuletin.this, ImageList);
-//                mViewPager.setAdapter(adapterView);
-//                runnable = new Runnable() {
-//                    public void run() {
-//                        if (adapterView.getCount() == page) {
-//                            page = 0;
-//                        } else {
-//                            page++;
-//                        }
-//                        mViewPager.setCurrentItem(page, true);
-//                        handler1.postDelayed(this, delay);
-//                    }
-//                };
-//            }
-//            if (pDialog.isShowing())
-//                pDialog.dismiss();
-//        }
-//
-//    }
 
     @Override
     public void onBackPressed() {

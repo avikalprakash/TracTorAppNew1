@@ -20,9 +20,7 @@ import com.lueinfo.tractorapp.SongRequest;
 import com.lueinfo.tractorapp.TableReservation;
 import com.lueinfo.tractorapp.Transaction;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class EpicFrag extends Fragment implements View.OnClickListener {
 
     Button introducer, news, promotion, paidItem, transaction, spinBtn, tableReservation, profile, mqrcodebtn,mmenubtn,

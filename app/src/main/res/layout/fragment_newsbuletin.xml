@@ -3,8 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:background="#ffffff"
-    android:layout_marginBottom="8dp">
+    android:background="#000000"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="#ffffff">
 <ImageView
     android:layout_width="140dp"
     android:layout_height="100dp"
@@ -21,5 +26,5 @@
         android:text="Newly renovated Cloud 9 Subang Jaya branch will be fully operational soon."
         android:layout_margin="16dp"
         android:textAppearance="?attr/textAppearanceListItem" />
-
+    </LinearLayout>
 </LinearLayout>

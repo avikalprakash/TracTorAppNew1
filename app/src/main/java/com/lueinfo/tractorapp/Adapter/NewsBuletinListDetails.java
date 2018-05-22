@@ -6,6 +6,10 @@ import org.json.JSONObject;
 
 public class NewsBuletinListDetails {
 
+    public NewsBuletinListDetails() {
+
+    }
+
     public void setTitle(String title) {
         this.title = title;
     }

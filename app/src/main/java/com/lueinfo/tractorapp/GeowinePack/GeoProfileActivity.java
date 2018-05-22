@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.NoConnectionError;
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.TimeoutError;
@@ -31,6 +32,9 @@ import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class GeoProfileActivity extends AppCompatActivity implements View.OnClickListener{
     Button profile;
@@ -176,8 +180,7 @@ public class GeoProfileActivity extends AppCompatActivity implements View.OnClic
 
                     }
 
-                    // notifying list adapter about data changes
-                    // so that it renders the list view with updated data
+
 
                 }, new Response.ErrorListener() {
             @Override
@@ -208,5 +211,43 @@ public class GeoProfileActivity extends AppCompatActivity implements View.OnClic
             pDialog.dismiss();
             pDialog = null;
         }
+    }
+
+
+    public void pp(){
+        String url = "http://httpbin.org/post";
+
+        StringRequest postRequest = new StringRequest(Request.Method.POST, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonResponse = new JSONObject(response).getJSONObject("form");
+                            String site = jsonResponse.getString("site"),
+                                    network = jsonResponse.getString("network");
+                            System.out.println("Site: "+site+"\nNetwork: "+network);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        error.printStackTrace();
+                    }
+                }
+        ) {
+            @Override
+            protected Map<String, String> getParams()
+            {
+                Map<String, String>  params = new HashMap<>();
+                // the POST parameters:
+                params.put("site", "code");
+                params.put("network", "tutsplus");
+                return params;
+            }
+        };
+        Volley.newRequestQueue(this).add(postRequest);
     }
 }

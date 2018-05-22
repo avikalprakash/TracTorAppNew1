@@ -96,7 +96,7 @@
             android:textSize="12dp"
             android:textStyle="italic"
             android:id="@+id/text2"
-            android:text=" or scan QR code to register for 5% discount on all bills at Cloud 9"
+            android:text=" or scan QR code to register for 5% discount on all bills at GeoWine"
             />
 
         <TextView
