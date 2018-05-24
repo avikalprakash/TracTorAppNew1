@@ -14,6 +14,8 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -96,6 +98,18 @@ public class NewsBuletin extends AppCompatActivity implements NewsBuletinListFra
             }
         });
 
+        listCustomer.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(NewsBuletin.this, NewsBuletinDetails.class);
+                intent.putExtra("title",buletinListDetailses.get(i).getTitle());
+                intent.putExtra("time",buletinListDetailses.get(i).getCreated_at());
+                intent.putExtra("description", buletinListDetailses.get(i).getDescription());
+                intent.putExtra("image",buletinListDetailses.get(i).getImage());
+                startActivity(intent);
+            }
+        });
+
         new MakeIntro().execute();
         new NewsSlideShow().execute();
 
@@ -103,12 +117,7 @@ public class NewsBuletin extends AppCompatActivity implements NewsBuletinListFra
 
     @Override
     public void onListFragmentInteraction(NewsBuletinListDetails item) {
-        Intent i = new Intent(NewsBuletin.this, NewsBuletinDetails.class);
-        i.putExtra("title",item.getTitle());
-        i.putExtra("time",item.getCreated_at());
-        i.putExtra("description", item.getDescription());
-        i.putExtra("image",item.getImage());
-        startActivity(i);
+
     }
 
 //    private class NewsBuletinList extends AsyncTask<Void, Void, Void>
