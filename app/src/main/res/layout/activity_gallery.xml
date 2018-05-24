@@ -104,9 +104,20 @@
              android:layout_height="wrap_content"
              android:textColor="#ffffff"
              android:gravity="center"
+             android:id="@+id/caption1"
+             android:textSize="10dp"
+             android:text="GGG"
+             />
+
+         <TextView
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:textColor="#ffffff"
+             android:gravity="center"
              android:id="@+id/uptxt1"
              android:textSize="10dp"
-             android:text="GGG"/>
+             android:text="GGG"
+             />
 
      </LinearLayout>
 
@@ -123,6 +134,16 @@
          android:id="@+id/img2"
          android:layout_margin="5dp"
          android:layout_height="120dp" />
+
+         <TextView
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:textColor="#ffffff"
+             android:gravity="center"
+             android:id="@+id/caption2"
+             android:textSize="10dp"
+             android:text="GGG"
+             />
 
          <TextView
              android:layout_width="match_parent"
@@ -147,6 +168,16 @@
          android:layout_margin="5dp"
          android:id="@+id/img3"
          android:layout_height="120dp" />
+
+         <TextView
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:textColor="#ffffff"
+             android:gravity="center"
+             android:id="@+id/caption3"
+             android:textSize="10dp"
+             android:text="GGG"
+             />
 
          <TextView
              android:layout_width="match_parent"
@@ -185,6 +216,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColor="#ffffff"
+                        android:gravity="center"
+                        android:id="@+id/caption4"
+                        android:textSize="10dp"
+                        android:text="GGG"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#ffffff"
                         android:id="@+id/uptxt4"
                         android:textSize="10dp"
                         android:gravity="center"
@@ -205,6 +246,16 @@
                     android:layout_margin="5dp"
                     android:id="@+id/img5"
                     android:layout_height="120dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#ffffff"
+                        android:gravity="center"
+                        android:id="@+id/caption5"
+                        android:textSize="10dp"
+                        android:text="GGG"
+                        />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -232,6 +283,15 @@
                     android:layout_margin="5dp"
                     android:layout_height="120dp" />
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#ffffff"
+                        android:gravity="center"
+                        android:id="@+id/caption6"
+                        android:textSize="10dp"
+                        android:text="GGG"
+                        />
 
                     <TextView
                         android:layout_width="match_parent"

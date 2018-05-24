@@ -11,6 +11,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -76,6 +78,17 @@ public class GeoNewsBuletin extends AppCompatActivity implements NewsBuletinList
         DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
         String date = df.format(Calendar.getInstance().getTime());
         timeText.setText(date);
+        listCustomer.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent i = new Intent(GeoNewsBuletin.this, NewsBuletinDetails.class);
+                i.putExtra("title",buletinListDetailses.get(position).getTitle());
+                i.putExtra("time",buletinListDetailses.get(position).getCreated_at());
+                i.putExtra("description", buletinListDetailses.get(position).getDescription());
+                i.putExtra("image",buletinListDetailses.get(position).getImage());
+                startActivity(i);
+            }
+        });
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -99,12 +112,7 @@ public class GeoNewsBuletin extends AppCompatActivity implements NewsBuletinList
 
     @Override
     public void onListFragmentInteraction(NewsBuletinListDetails item) {
-        Intent i = new Intent(GeoNewsBuletin.this, NewsBuletinDetails.class);
-        i.putExtra("title",item.getTitle());
-        i.putExtra("time",item.getCreated_at());
-        i.putExtra("description", item.getDescription());
-        i.putExtra("image",item.getImage());
-        startActivity(i);
+
     }
 
 

@@ -9,6 +9,15 @@
     </ImageView>
 
     <TextView
+        android:id="@+id/captionzoom"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:text="frvssvssv"
+        android:layout_height="wrap_content"
+        android:textColor="#000000">
+    </TextView>
+
+    <TextView
         android:id="@+id/custom_fullimage_placename"
         android:layout_width="match_parent"
         android:gravity="center"

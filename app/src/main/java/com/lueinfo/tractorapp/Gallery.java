@@ -1,19 +1,17 @@
 package com.lueinfo.tractorapp;
 
 import android.app.ProgressDialog;
-import android.content.ContentValues;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Bundle;
 import android.os.ParcelFileDescriptor;
 import android.provider.MediaStore;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
@@ -36,9 +34,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.lueinfo.tractorapp.FCM.TokenSave;
 import com.lueinfo.tractorapp.Utils.PromotionModel;
-import com.lueinfo.tractorapp.Utils.SaveCredentials;
 import com.lueinfo.tractorapp.Utils.SaveUserId;
 import com.lueinfo.tractorapp.Utils.Urls;
 import com.lueinfo.tractorapp.Utils.UserSessionManager;
@@ -50,9 +46,7 @@ import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileDescriptor;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -83,7 +77,7 @@ public class Gallery extends AppCompatActivity {
 
     List<ImageView> promo = new ArrayList<>();
     String newurl ="";
-    String upltxt ="";
+    String upltxt ="",capstr="";
     List<PromotionModel> promo123 = new ArrayList<>();
     List<String> promo12345 = new ArrayList<>();
 
@@ -91,8 +85,13 @@ public class Gallery extends AppCompatActivity {
 
     List<String> addtxt = new ArrayList<>();
 
+    List<String> captxt = new ArrayList<>();
+
     TextView muptxt1, muptxt2, muptxt3, muptxt4, muptxt5, muptxt6;
+    TextView mcaption1, mcaption2, mcaption3, mcaption4, mcaption5, mcaption6;
     LinearLayout mlin1,mlin2,mli3,mli4,mli5,mli6;
+
+    List<TextView> captionlst = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,13 +105,6 @@ public class Gallery extends AppCompatActivity {
         mimg5 = findViewById(R.id.img5);
         mimg6 = findViewById(R.id.img6);
 
-        promo.add(mimg1);
-        promo.add(mimg2);
-        promo.add(mimg3);
-        promo.add(mimg4);
-        promo.add(mimg5);
-        promo.add(mimg6);
-
 
         muptxt1 =  findViewById(R.id.uptxt1);
         muptxt2 =  findViewById(R.id.uptxt2);
@@ -121,12 +113,12 @@ public class Gallery extends AppCompatActivity {
         muptxt5 =  findViewById(R.id.uptxt5);
         muptxt6 =  findViewById(R.id.uptxt6);
 
-        uptxtx.add(muptxt1);
-        uptxtx.add(muptxt2);
-        uptxtx.add(muptxt3);
-        uptxtx.add(muptxt4);
-        uptxtx.add(muptxt5);
-        uptxtx.add(muptxt6);
+        mcaption1 = findViewById(R.id.caption1);
+        mcaption2 = findViewById(R.id.caption2);
+        mcaption3 = findViewById(R.id.caption3);
+        mcaption4 = findViewById(R.id.caption4);
+        mcaption5 = findViewById(R.id.caption5);
+        mcaption6 = findViewById(R.id.caption6);
 
         mlin1 = findViewById(R.id.lin1);
         mlin2 = findViewById(R.id.lin2);
@@ -135,40 +127,42 @@ public class Gallery extends AppCompatActivity {
         mli5 = findViewById(R.id.lin5);
         mli6 = findViewById(R.id.lin6);
 
+        captiontxt = findViewById(R.id.captiontxt);
+
         mlin1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                loadPhoto(mimg1,100,100,muptxt1.getText().toString());
+                loadPhoto(mimg1,100,100,muptxt1.getText().toString(),mcaption1.getText().toString());
             }
         });
         mlin2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                loadPhoto(mimg2,50,50,muptxt2.getText().toString());
+                loadPhoto(mimg2,50,50,muptxt2.getText().toString(),mcaption2.getText().toString());
             }
         });
         mli3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                loadPhoto(mimg3,50,50,muptxt3.getText().toString());
+                loadPhoto(mimg3,50,50,muptxt3.getText().toString(),mcaption3.getText().toString());
             }
         });
         mli4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                loadPhoto(mimg4,50,50,muptxt4.getText().toString());
+                loadPhoto(mimg4,50,50,muptxt4.getText().toString(),mcaption4.getText().toString());
             }
         });
         mli5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                loadPhoto(mimg5,50,50,muptxt4.getText().toString());
+                loadPhoto(mimg5,50,50,muptxt4.getText().toString(),mcaption5.getText().toString());
             }
         });
         mli6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                loadPhoto(mimg6,50,50,muptxt5.getText().toString());
+                loadPhoto(mimg6,50,50,muptxt5.getText().toString(),mcaption6.getText().toString());
             }
         });
 
@@ -182,21 +176,20 @@ public class Gallery extends AppCompatActivity {
                 SubmitPic();
             }
         });
-        captiontxt = findViewById(R.id.captiontxt);
 
         mgallery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
             {
 
-                Intent i = new Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                Intent i = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 startActivityForResult(i, RESULT_LOAD_IMAGE);
             }
         });
 
     }
 
-    private void loadPhoto(ImageView imageView, int width, int height,String text) {
+    private void loadPhoto(ImageView imageView, int width, int height,String text,String cappp) {
 
         ImageView tempImageView = imageView;
 
@@ -208,7 +201,9 @@ public class Gallery extends AppCompatActivity {
                 (ViewGroup) findViewById(R.id.layout_root));
         ImageView image = (ImageView) layout.findViewById(R.id.fullimage);
         TextView textView = (TextView) layout.findViewById(R.id.custom_fullimage_placename);
+        TextView capview = (TextView) layout.findViewById(R.id.captionzoom);
         textView.setText("Uploaded By "+text);
+        capview.setText(cappp);
         image.setImageDrawable(tempImageView.getDrawable());
         imageDialog.setView(layout);
         imageDialog.setPositiveButton(getResources().getString(R.string.ok_button), new DialogInterface.OnClickListener(){
@@ -228,7 +223,7 @@ public class Gallery extends AppCompatActivity {
         try {
             if (android.os.Build.VERSION.SDK_INT >= 23) {
 
-                Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 startActivityForResult(intent, PICK_IMAGE_REQUEST);
 
 
@@ -236,7 +231,7 @@ public class Gallery extends AppCompatActivity {
 
                 Intent i = new Intent(
                         Intent.ACTION_PICK,
-                        android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                        MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
 
                 startActivityForResult(i, RESULT_LOAD_IMAGE);
 
@@ -293,21 +288,22 @@ public class Gallery extends AppCompatActivity {
                             pDialog.dismiss();
                             Log.d("tag", objone.toString());
                             try {
-
                                 boolean check = objone.getBoolean("error");
-
-
                                 if (!check) {
 
                                     String newobj = objone.getString("message");
 
                                     AlertDialog.Builder builder = new AlertDialog.Builder(Gallery.this);
                                     builder.setMessage(newobj)
-                                            .setNegativeButton("ok", null)
+                                            .setNegativeButton("ok", new DialogInterface.OnClickListener() {
+                                                @Override
+                                                public void onClick(DialogInterface dialogInterface, int i)
+                                                {
+                                                    ShowPic();
+                                                }
+                                            })
                                             .create()
                                             .show();
-
-
                                 }
                                 else {
 
@@ -331,7 +327,6 @@ public class Gallery extends AppCompatActivity {
                     //  hideProgressDialog();
                 }
             }) {
-
                 /**
                  * Passing some request headers
                  */
@@ -355,7 +350,28 @@ public class Gallery extends AppCompatActivity {
 
     public void ShowPic() {
 
-      //  String user = captiontxt.getText().toString().trim();
+        promo.add(mimg1);
+        promo.add(mimg2);
+        promo.add(mimg3);
+        promo.add(mimg4);
+        promo.add(mimg5);
+        promo.add(mimg6);
+
+        uptxtx.add(muptxt1);
+        uptxtx.add(muptxt2);
+        uptxtx.add(muptxt3);
+        uptxtx.add(muptxt4);
+        uptxtx.add(muptxt5);
+        uptxtx.add(muptxt6);
+
+
+        captionlst.add(mcaption1);
+        captionlst.add(mcaption2);
+        captionlst.add(mcaption3);
+        captionlst.add(mcaption4);
+        captionlst.add(mcaption5);
+        captionlst.add(mcaption6);
+
 
         String userid = SaveUserId.getInstance(Gallery.this).getUserId();
         final String image = getStringImage(bitmap);
@@ -391,7 +407,7 @@ public class Gallery extends AppCompatActivity {
                                          JSONObject obj = jsonArray.getJSONObject(i);
                                          promo12345.add(obj.getString("photo"));
                                          addtxt.add(obj.getString("username"));
-
+                                         captxt.add(obj.getString("caption"));
                                     }
 
                                     for(int ut = 0; ut < addtxt.size(); ut++)
@@ -401,32 +417,35 @@ public class Gallery extends AppCompatActivity {
                                         tt.setText(upltxt);
                                     }
 
+                                    for(int ct = 0; ct < addtxt.size(); ct++)
+                                    {
+                                        capstr =  captxt.get(ct);
+                                        TextView cctt =  captionlst.get(ct);
+                                        cctt.setText(capstr);
+                                    }
+
                                     for(int ijk = 0; ijk < promo12345.size();ijk++)
                                     {
                                         newurl =  promo12345.get(ijk);
                                         ImageView v =  promo.get(ijk);
                                         Picasso.with(Gallery.this).load(newurl).into(v);
-
                                     }
-
-                                }
-                                else {
+                                } else
+                                    {
 
                                     AlertDialog.Builder builder = new AlertDialog.Builder(Gallery.this);
                                     builder.setMessage("Please Retry")
                                             .setNegativeButton("ok", null)
                                             .create()
                                             .show();
-
-
                                 }
 
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
                         }
-                    }, new Response.ErrorListener() {
-
+                    }, new Response.ErrorListener()
+            {
                 @Override
                 public void onErrorResponse(VolleyError error) {
                     pDialog.dismiss();

@@ -81,7 +81,7 @@ public class GeoWIneFrag extends Fragment implements View.OnClickListener{
                 startActivity(new Intent(getActivity().getApplicationContext(), GeoNewsBuletin.class));
                 break;
             case R.id.promotion:
-                startActivity(new Intent(getActivity().getApplicationContext(), GeoSpecialPromotion.class));
+             //   startActivity(new Intent(getActivity().getApplicationContext(), GeoSpecialPromotion.class));
                 break;
             case R.id.paidItem:
                 Toast.makeText(getContext(),"Coming Soon",Toast.LENGTH_SHORT).show();
@@ -94,19 +94,19 @@ public class GeoWIneFrag extends Fragment implements View.OnClickListener{
                 startActivity(new Intent(getActivity().getApplicationContext(), GeoTableReservation.class));
                 break;
             case R.id.profile:
-                startActivity(new Intent(getActivity().getApplicationContext(), GeoProfileActivity.class));
+            //    startActivity(new Intent(getActivity().getApplicationContext(), GeoProfileActivity.class));
                 break;
             case R.id.qrcodeimg:
-                startActivity(new Intent(getActivity().getApplicationContext(), GeoQRActivity.class));
+             //   startActivity(new Intent(getActivity().getApplicationContext(), GeoQRActivity.class));
                 break;
             case R.id.menu:
-                startActivity(new Intent(getActivity().getApplicationContext(), GeoMenuActivity.class));
+            //    startActivity(new Intent(getActivity().getApplicationContext(), GeoMenuActivity.class));
                 break;
             case R.id.song_request:
                 Toast.makeText(getContext(),"Coming Soon",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.gallery:
-                startActivity(new Intent(getActivity().getApplicationContext(), GeoGallery.class));
+            //    startActivity(new Intent(getActivity().getApplicationContext(), GeoGallery.class));
                 break;
 
             case R.id.live_stream:

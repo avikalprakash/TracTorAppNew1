@@ -51,6 +51,8 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
     FrameLayout searchFrame;
     MenAdap adapter;
 
+
+
     TextView title;
     List<PromotionModel> promotionlist = new ArrayList<>();
 
@@ -65,6 +67,8 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
 
         populatedata();
     }
+
+
 
 
     public void populatedata(){
